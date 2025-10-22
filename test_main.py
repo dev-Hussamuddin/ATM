@@ -23,12 +23,7 @@ def ATM():
     if user_input == "1" or user_input == "Credit" or user_input == "credit":
         amount = int(input("Enter your amount: "))
         print(s1.credit(amount))
-        check_balance = input("Do you want to check your current balance? y/n: ")
-        if check_balance == "y":
-            print(f"Your current balance is Rs {s1.get_balance()}-/")
-            exit_ATM()
-        else:
-            exit_ATM()
+        check_balance()
 
     #Debit
     elif user_input == "2" or user_input == "Debit" or user_input == "debit":
@@ -38,12 +33,7 @@ def ATM():
             print(s1.debit(amount))
         else:
             print("Please enter a valid amount.")
-        check_balance = input("Do you want to check your current balance? y/n: ")
-        if check_balance == "y":
-            print(f"Your current balance is Rs {s1.get_balance()}-/")
-            exit_ATM()
-        else:
-            exit_ATM()
+        check_balance()
 
     #Check balance
     elif user_input == "3" or user_input == "Check balance" or user_input == "check balance":
@@ -65,7 +55,14 @@ def check_account():
     else:
         print("The account does not exist")
         exit_ATM()
-    
+
+def check_balance():
+    user_input = input("Do you want to check your current balance? y/n: ")
+    if user_input == "y":
+        print(f"Your current balance is Rs {s1.get_balance()}-/")
+        exit_ATM()
+    else:
+        exit_ATM()
 
 def exit_ATM():
     exit = input("Do you want to exit the ATM? y/n: ")
